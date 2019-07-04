@@ -27,6 +27,7 @@ author:
   name: "Pierre-Emmanuel MERCIER"
   location: "Bordeaux, France"
   avatar   : "/assets/images/avatar.jpg"
+  bio: "Solution Architect"
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
