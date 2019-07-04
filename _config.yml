@@ -24,8 +24,8 @@ twitter:
 
 # Site Author
 author:
-  name             : "Pierre-Emmanuel MERCIER"
-  location         : "Bordeaux, France"
+  name: "Pierre-Emmanuel MERCIER"
+  location: "Bordeaux, France"
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
