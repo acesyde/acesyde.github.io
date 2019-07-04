@@ -1,6 +1,6 @@
 # theme 
 remote_theme: "mmistakes/minimal-mistakes@4.16.4"
-minimal_mistakes_skin: dark
+minimal_mistakes_skin: air
 markdown: kramdown
 
 # Outputting
@@ -11,8 +11,10 @@ timezone: "Europe/Paris"
 
 # Site settings
 locale: "fr-FR"
+name: "Pierre-Emmanuel MERCIER"
 title: "Ace Blog"
 search: true
+breadcrumbs: true 
 include:
   - _pages
 
@@ -24,6 +26,22 @@ twitter:
 author:
   name             : "Pierre-Emmanuel MERCIER"
   location         : "Bordeaux, France"
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/lim_ace"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/acesyde"
+
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/lim_ace"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/acesyde"
 
 plugins:
   - jekyll-paginate
