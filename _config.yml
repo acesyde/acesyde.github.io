@@ -12,11 +12,13 @@ timezone: "Europe/Paris"
 # Site settings
 locale: "fr-FR"
 title: "Ace Blog"
-twitter_username: lim_ace
-github_username: acesyde
 search: true
 include:
   - _pages
+
+# Social Sharing
+twitter:
+  username: "lim_ace"
 
 # Site Author
 author:
