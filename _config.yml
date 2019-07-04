@@ -1,11 +1,32 @@
 # theme 
 remote_theme: "mmistakes/minimal-mistakes@4.16.4"
 minimal_mistakes_skin: dark
+markdown: kramdown
+
+# Outputting
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: "Europe/Paris"
 
 # Site settings
 locale: "fr-FR"
 title: "Ace Blog"
-name: "Pierre-Emmanuel MERCIER"
+twitter_username: lim_ace
+github_username: acesyde
+search: true
+include:
+  - _pages
+
+# Site Author
+author:
+  name             : "Pierre-Emmanuel MERCIER"
+  location         : "Bordeaux, France"
 
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
   - jekyll-include-cache
