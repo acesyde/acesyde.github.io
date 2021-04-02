@@ -1,0 +1,51 @@
+defaultTheme: auto
+description: Acesyde tech blog
+keywords:
+  - blog
+  - tech
+  - AWS
+  - dotnet
+author:
+  - Pierre-Emmanuel MERCIER
+ShowReadingTime: true
+ShowShareButtons: false
+ShowPostNavLinks: true
+ShowBreadCrumbs: true
+ShowToc: false
+comments: false
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: monokai
+
+homeInfoParams:
+  Title: Pierre-Emmanuel MERCIER
+  Content: >
+    Software architect.
+
+    - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
+
+    - Do give a 🌟 on Github !
+
+    - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+
+socialIcons:
+  - name: twitter
+    url: "https://twitter.com/lim_ace"
+  - name: linkedin
+    url: "https://www.linkedin.com/in/pierre-emmanuel-mercier-10b82a37/"
+  - name: github
+    url: "https://github.com/acesyde"
+  - name: rss
+    url: "https://blog.ace-dev.fr/sitemap.xml"
