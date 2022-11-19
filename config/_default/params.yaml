@@ -49,3 +49,5 @@ socialIcons:
     url: "https://github.com/acesyde"
   - name: rss
     url: "https://blog.ace-dev.fr/sitemap.xml"
+  - name: mastodon
+    url: "https://mastodon.top/@Acesyde"
