@@ -7,6 +7,8 @@ hideMeta: true
 ShowReadingTime: false
 ---
 
+Hi 👋 My name is Pierre-Emmanuel Mercier
+- 🖥️ I'm a Software Architect
 - 🏣 I’m currently working at Betclic Group (Gambling Company)
 - 🏠 I live in France
 - 💬 Ask me about .NET, Docker, AWS, Azure
