@@ -8,10 +8,11 @@ keywords:
 author:
   - Pierre-Emmanuel MERCIER
 ShowReadingTime: true
-ShowShareButtons: false
+ShowShareButtons: true
 ShowPostNavLinks: true
 ShowBreadCrumbs: true
-ShowToc: false
+ShowToc: true
+ShowCodeCopyButtons: true
 comments: false
 
 taxonomies:
