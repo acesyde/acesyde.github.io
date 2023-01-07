@@ -1,13 +1,11 @@
 ---
-title: "About Me"
+title: "💫 About Me"
 layout: "single"
 summary: "about"
 ShowBreadCrumbs: false
 hideMeta: true
 ShowReadingTime: false
 ---
-
-# 💫 About Me:
 
 - 🏣 I’m currently working at Betclic Group (Gambling Company)
 - 🏠 I live in France
