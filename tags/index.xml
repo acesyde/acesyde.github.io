@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Tech Blog - Acesyde</title>
-    <link>https://acesyde.github.io/tags/</link>
+    <link>https://blog.ace-dev.fr/tags/</link>
     <description>Recent content in Tags on Tech Blog - Acesyde</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://acesyde.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.ace-dev.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>automation</title>
-      <link>https://acesyde.github.io/tags/automation/</link>
+      <link>https://blog.ace-dev.fr/tags/automation/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
       
-      <guid>https://acesyde.github.io/tags/automation/</guid>
+      <guid>https://blog.ace-dev.fr/tags/automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>esphome</title>
-      <link>https://acesyde.github.io/tags/esphome/</link>
+      <link>https://blog.ace-dev.fr/tags/esphome/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
       
-      <guid>https://acesyde.github.io/tags/esphome/</guid>
+      <guid>https://blog.ace-dev.fr/tags/esphome/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hassio</title>
-      <link>https://acesyde.github.io/tags/hassio/</link>
+      <link>https://blog.ace-dev.fr/tags/hassio/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
       
-      <guid>https://acesyde.github.io/tags/hassio/</guid>
+      <guid>https://blog.ace-dev.fr/tags/hassio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>home</title>
-      <link>https://acesyde.github.io/tags/home/</link>
+      <link>https://blog.ace-dev.fr/tags/home/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
       
-      <guid>https://acesyde.github.io/tags/home/</guid>
+      <guid>https://blog.ace-dev.fr/tags/home/</guid>
       <description></description>
     </item>
     

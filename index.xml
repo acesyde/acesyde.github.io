@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tech Blog - Acesyde</title>
-    <link>https://acesyde.github.io/</link>
+    <link>https://blog.ace-dev.fr/</link>
     <description>Recent content on Tech Blog - Acesyde</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://acesyde.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.ace-dev.fr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to automate your gate</title>
-      <link>https://acesyde.github.io/posts/2023/01/howto-automate-your-gate/</link>
+      <link>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-gate/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
       
-      <guid>https://acesyde.github.io/posts/2023/01/howto-automate-your-gate/</guid>
+      <guid>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-gate/</guid>
       <description>&lt;p&gt;Since I built my house I want to automate everything and now it&amp;rsquo;s time to start a new project, my gate.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>💫 About Me</title>
-      <link>https://acesyde.github.io/about/</link>
+      <link>https://blog.ace-dev.fr/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://acesyde.github.io/about/</guid>
+      <guid>https://blog.ace-dev.fr/about/</guid>
       <description>about</description>
     </item>
     
