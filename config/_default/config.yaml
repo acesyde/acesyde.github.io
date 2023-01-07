@@ -1,8 +1,10 @@
-baseURL: "https://acesyde.github.io"
+baseURL: "https://blog.ace-dev.fr"
 languageCode: en-us
 title: Tech Blog - Acesyde
 paginate: 5
 theme: PaperMod
+
+googleAnalytics: G-XM717878RZ
 
 enableInlineShortcodes: true
 enableRobotsTXT: true

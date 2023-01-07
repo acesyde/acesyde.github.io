@@ -1,3 +1,4 @@
+env: production
 defaultTheme: auto
 description: Acesyde tech blog
 keywords:
@@ -55,3 +56,7 @@ socialIcons:
     url: "https://blog.ace-dev.fr/sitemap.xml"
   - name: mastodon
     url: "https://mastodon.top/@Acesyde"
+
+analytics:
+  google:
+    SiteVerificationTag: "XYZabc"
