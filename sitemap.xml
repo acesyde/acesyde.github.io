@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://acesyde.github.io/tags/automation/</loc>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://acesyde.github.io/categories/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://acesyde.github.io/tags/css/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <loc>https://acesyde.github.io/tags/esphome/</loc>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://acesyde.github.io/posts/first-post/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <loc>https://acesyde.github.io/tags/hassio/</loc>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://acesyde.github.io/tags/html/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <loc>https://acesyde.github.io/categories/hassio/</loc>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://acesyde.github.io/tags/markdown/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <loc>https://acesyde.github.io/tags/home/</loc>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://acesyde.github.io/categories/home/</loc>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://acesyde.github.io/posts/2023/01/howto-automate-your-gate/</loc>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://acesyde.github.io/posts/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
-  </url><url>
-    <loc>https://acesyde.github.io/categories/syntax/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://acesyde.github.io/tags/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://acesyde.github.io/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
-  </url><url>
-    <loc>https://acesyde.github.io/tags/themes/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
-  </url><url>
-    <loc>https://acesyde.github.io/categories/themes/</loc>
-    <lastmod>2021-04-02T14:34:06+02:00</lastmod>
+    <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://acesyde.github.io/about/</loc>
   </url><url>

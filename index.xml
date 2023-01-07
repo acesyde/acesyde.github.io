@@ -6,14 +6,14 @@
     <description>Recent content on Tech Blog - Acesyde</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Apr 2021 14:34:06 +0200</lastBuildDate><atom:link href="https://acesyde.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://acesyde.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>First Post</title>
-      <link>https://acesyde.github.io/posts/first-post/</link>
-      <pubDate>Fri, 02 Apr 2021 14:34:06 +0200</pubDate>
+      <title>How to automate your gate</title>
+      <link>https://acesyde.github.io/posts/2023/01/howto-automate-your-gate/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
       
-      <guid>https://acesyde.github.io/posts/first-post/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+      <guid>https://acesyde.github.io/posts/2023/01/howto-automate-your-gate/</guid>
+      <description>&lt;p&gt;Since I built my house I want to automate everything and now it&amp;rsquo;s time to start a new project, my gate.&lt;/p&gt;</description>
     </item>
     
     <item>
