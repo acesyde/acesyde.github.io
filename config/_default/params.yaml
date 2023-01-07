@@ -29,16 +29,19 @@ markup:
     lineNos: true
     style: monokai
 
+profileMode:
+  enabled: false
+
 homeInfoParams:
-  Title: Pierre-Emmanuel MERCIER
+  Title: 👋, here and welcome to my tech blog
   Content: >
-    Software architect.
+    - 🖥️ I'm a Software Architect
 
-    - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
+    - 🏣 I’m currently working at Betclic Group (Gambling Company)
 
-    - Do give a 🌟 on Github !
-
-    - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+    - 🏠 I live in France
+    
+    - 💬 Ask me about .NET, Docker, AWS, Azure
 
 socialIcons:
   - name: twitter
