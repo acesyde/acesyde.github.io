@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>esphome on Tech Blog - Acesyde</title>
+    <title>Esphome on Tech Blog - Acesyde</title>
     <link>https://blog.ace-dev.fr/tags/esphome/</link>
-    <description>Recent content in esphome on Tech Blog - Acesyde</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.ace-dev.fr/tags/esphome/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Esphome on Tech Blog - Acesyde</description>
+    <generator>Hugo -- 0.143.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://blog.ace-dev.fr/tags/esphome/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to automate your gate</title>
       <link>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-gate/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
-      
       <guid>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-gate/</guid>
       <description>&lt;p&gt;Since I built my house I want to automate everything and now it&amp;rsquo;s time to start a new project, my gate.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
