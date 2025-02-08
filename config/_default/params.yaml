@@ -43,19 +43,17 @@ homeInfoParams:
 
     - 🏠 I live in France
     
-    - 💬 Ask me about .NET, Docker, AWS, Azure
+    - 💬 Ask me about .NET, Python, Rust, Docker, AWS, Azure and many more
 
 socialIcons:
-  - name: twitter
-    url: "https://twitter.com/lim_ace"
+  - name: bluesky
+    url: "https://bsky.app/profile/ace-dev.fr"
   - name: linkedin
     url: "https://www.linkedin.com/in/pierre-emmanuel-mercier-10b82a37/"
   - name: github
     url: "https://github.com/acesyde"
   - name: rss
     url: "https://blog.ace-dev.fr/sitemap.xml"
-  - name: mastodon
-    url: "https://mastodon.top/@Acesyde"
 
 analytics:
   google:
