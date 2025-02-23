@@ -10,7 +10,7 @@ run = "hugo build --minify"
 
 [tasks.serve]
 description = "Serve the site"
-run = "hugo serve -D"
+run = "hugo serve"
 
 [tasks.theme-install]
 description = "Install the theme"

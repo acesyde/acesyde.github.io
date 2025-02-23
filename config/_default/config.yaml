@@ -8,8 +8,8 @@ googleAnalytics: G-XM717878RZ
 enableInlineShortcodes: true
 enableRobotsTXT: true
 
-buildDrafts: false
-buildFuture: false
+buildDrafts: true
+buildFuture: true
 buildExpired: false
 enableEmoji: true
 
