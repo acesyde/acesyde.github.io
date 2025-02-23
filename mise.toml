@@ -3,3 +3,19 @@ hugo-extended = "latest"
 
 [settings]
 experimental = true
+
+[tasks.build]
+description = "Build the site"
+run = "hugo build --minify"
+
+[tasks.serve]
+description = "Serve the site"
+run = "hugo serve -D"
+
+[tasks.theme-install]
+description = "Install the theme"
+run = "git submodule update --init --recursive"
+
+[tasks.theme-update]
+description = "Update the theme"
+run = "git submodule update --remote --merge"

@@ -8,7 +8,7 @@ cover:
   image: "cover_came.jpg"
   alt: "My gate"
   title: "My gate"
-  relative: true
+  relative: false
 ---
 
 Since I built my house I want to automate everything and now it's time to start a new project, my gate.

@@ -1,0 +1,3 @@
+[tools.hugo-extended]
+version = "0.144.2"
+backend = "aqua:gohugoio/hugo/hugo-extended"

@@ -8,7 +8,7 @@ cover:
   image: "swimming_pool.jpg"
   alt: "My swimming pool"
   title: "My swimming pool"
-  relative: true
+  relative: false
 ---
 
 Having a pool is a good idea because previous summers have been so hot, as well as for relaxing after work, but in the other hand, it can be very useful to limit the power consumption of the pool pump motor.
