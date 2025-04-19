@@ -1,26 +1,27 @@
 ---
-title: "The Journey from Makefiles to Mise: Transforming Our Development Workflow"
+title: "Sharing Tasks with Mise – How We Standardize and Scale Across Projects"
 date: 2025-04-20T00:00:00+02:00
 tags: ["mise", "work", "devops"]
 categories: ["work", "devops"]
 showToc: false
 cover:
-  image: "mise.png"
-  alt: "Mise"
-  title: "Mise"
+  image: "mise-part3-banner.png"
+  alt: "Sharing Tasks with Mise"
+  title: "Sharing Tasks with Mise"
   relative: false
 ---
 
-## Reduce your boilerplate
+## 🧼 Reduce your boilerplate
 
-As I said in my [previous posts](/posts/2025/04/how-we-use-mise-at-work-part-1), we have moved from makefiles and bash scripts to `Mise`.
-Now we will see together how we have implemented step by step a complete solution to share your taks between your projects and speed up new projects and the ability to use the same tasks between differente environments like the developer laptop and the CICD.
+As mentioned in [Part 1](/posts/2025/04/how-we-use-mise-at-work-part-1), we’ve moved away from Makefiles and bash scripts in favor of `mise`. In this final post of the series, I’ll walk you through how we’ve taken things further by sharing tasks across projects and environments—speeding up onboarding and keeping things consistent between dev machines and CI/CD.
 
-## How tasks work in mise
+## ⚙️ How tasks work in `mise`
 
-In `mise` you hve a lot of possibilities to create and manage your tasks, we have decided to mix them and to use the best part of them.
+`mise` offers multiple ways to define and run tasks. After experimenting, we’ve decided to use a mix of both TOML-based and file-based tasks to get the best of both worlds.
 
-The first possibility is the [TOML task](https://mise.jdx.dev/tasks/toml-tasks.html) based, basically you describe your task in a toml file like this
+### TOML-based tasks
+
+The most straightforward way is to define tasks directly in your `mise.toml` using the [TOML format](https://mise.jdx.dev/tasks/toml-tasks.html):
 
 ```toml
 [tasks.serve]
@@ -28,13 +29,13 @@ description = "Serve the site"
 run = "hugo serve"
 ```
 
-Using this is fine but if you want to do more things you're quickly limited
+That’s easy and declarative—but if you need more logic or control, it gets limiting fast.
 
-For that you can use [file tasks](https://mise.jdx.dev/tasks/file-tasks.html)
+### File-based tasks
 
-File tasks are easy to use because you can write them in the interpreted language you want
+For more flexibility, we use [file tasks](https://mise.jdx.dev/tasks/file-tasks.html). These are regular scripts that live in files. You can use any scripting language, but we’ve chosen to stick with `bash`. Why? Because a lot of our previous tooling was already in bash and Makefiles, so migrating was mostly a copy-paste job.
 
-We hve choosen the `bash` why ? because previously we have writtern our scripts into bash and makefiles, so we just have to copy / past the previous content to our tasks.
+Example:
 
 ```bash
 #!/usr/bin/env bash
@@ -43,13 +44,13 @@ We hve choosen the `bash` why ? because previously we have writtern our scripts 
 hugo serve
 ```
 
-## In the real world
+## 💼 In the real world
 
-So now we have all necessary information to move forward and I will share with how we do it in our company.
+Now that we’ve got the basics down, let’s look at how we’ve applied this setup in our actual day-to-day work.
 
-### Centralized repository
+### 📦 Centralized task repository
 
-We have created a centralize repository to be able to share these tasks with all projects, we also decided to create a specific project structure.
+To encourage reusability, we created a centralized repository with a clear structure for all shared tasks:
 
 ```shell
 .
@@ -70,9 +71,9 @@ We have created a centralize repository to be able to share these tasks with all
     └── lint
 ```
 
-As you can see we have decided to split our tasks by group like (aws, azure, etc...)
+We grouped related tasks (e.g. `aws`, `azure`, etc.) into folders and added a standard `check-prerequisites` task in each group to ensure required tools are installed.
 
-We also decide to add in each group a `check-prerequisites` like this
+Example:
 
 ```bash
 #!/usr/bin/env bash
@@ -81,12 +82,12 @@ We also decide to add in each group a `check-prerequisites` like this
 set -e
 
 if ! command -v aws &> /dev/null; then
-    echo "❌ Aws CLI is not installed"
+    echo "❌ AWS CLI is not installed"
     exit 1
 fi
 ```
 
-And we use it in the `login` script like this
+Then, other tasks in that group can declare a dependency on this check:
 
 ```bash
 #!/usr/bin/env bash
@@ -100,28 +101,38 @@ if [ -z "$AWS_PROFILE" ]; then
   exit 1
 fi
 
-echo "🔑 Login to AWS..."
-
+echo "🔑 Logging in to AWS..."
 aws sso login --profile $AWS_PROFILE
 ```
 
-You can also see a `download-tasks` and that's our angular stone of this repository and i will share it with you
+### 📥 The `download-tasks` script
+
+The backbone of our shared task system is a special script: `download-tasks`. Think of it as our little automation butler—it fetches selected task groups from the shared repository and installs them in your local project directory.
+
+Here’s why it’s a game-changer:
+
+- ✅ **Versioning**: Tasks are pulled from a specific tag or branch, ensuring consistency across teams and CI environments.
+- 📦 **Selective installation**: You only download what you need. This keeps your project tidy and avoids unnecessary bloat.
+- 🔄 **Reproducibility**: By pinning the task version, your tasks won’t suddenly change under your feet.
+- 🧹 **Clean environment**: The script deletes and re-creates the target folder every time, so you’re always working with a fresh copy.
+- 🧩 **Plug-and-play**: Once tasks are in place, `mise` recognizes them immediately. No need for extra config.
+
+Let’s look at the script:
 
 ```bash
 #!/usr/bin/env bash
 #MISE description="📥 Download and install tasks"
 #USAGE arg "<version>" help="Version of the tasks to download and install"
 #USAGE arg "<tasks>" help="List of tasks to download and install (comma separated)"
-#USAGE flag "-d --directory <directory>" help="Directory where tasks will be installed `shared_tasks` by default"
+#USAGE flag "-d --directory <directory>" help="Directory where tasks will be installed (default: shared-tasks)"
 
-# Variables
 REPO_URL="git@github.com:owner/mise-shared-tasks.git"
 TMP_DIR=$(mktemp -d)
 TASK_DIR="${usage_directory:-shared-tasks}"
 TASKS=${usage_tasks}
 VERSION=${usage_version}
 
-# Information
+# Info
 echo "========================================================================================================================"
 echo "Downloading tasks from $REPO_URL"
 echo "Repo version: $VERSION"
@@ -129,24 +140,23 @@ echo "Installing tasks in $TASK_DIR"
 echo "Tasks to install: $TASKS"
 echo "========================================================================================================================"
 
-# Check if tasks_dir exists and delete it if it does
+# Clean existing tasks
 if [ -d "$TASK_DIR" ]; then
     echo "🧹 Cleaning tasks directory"
     rm -rf "$TASK_DIR"
 fi
 
-# Create the tasks directory
+# Create tasks directory
 echo "📁 Creating tasks directory"
 mkdir -p "$TASK_DIR"
 
-# Clone the repository into the temporary directory
+# Clone repo
 echo "📥 Cloning repository"
 git clone "$REPO_URL" "$TMP_DIR" --branch "$VERSION" --depth 1 > /dev/null 2>&1
 
-# Split the USAGE_TASKS variable into an array
+# Copy selected tasks
 IFS=',' read -r -a TASK_ARRAY <<< "$TASKS"
 
-# Copy each directory from the temporary directory to the shared directory
 for TASK in "${TASK_ARRAY[@]}"; do
   if [ -d "$TMP_DIR/shared-tasks/$TASK" ]; then
     cp -r "$TMP_DIR/shared-tasks/$TASK" "$TASK_DIR/"
@@ -156,28 +166,23 @@ for TASK in "${TASK_ARRAY[@]}"; do
   fi
 done
 
-# Create a gitignore content of the tasks directory
+# Add .gitignore
 echo "🤷 Creating .gitignore file"
 cat <<EOF > "$TASK_DIR/.gitignore"
-# Ignore all files in the tasks directory
 *
-# Except for the .gitignore file
 !.gitignore
 EOF
 
-# Clean the temporary directory
+# Cleanup
 echo "🧹 Cleaning temporary directory"
 rm -rf "$TMP_DIR"
 ```
 
-This script will download tasks from this repository and copy them into you project repository.
-You will use the <branch>/<tag> to have immutable tasks shared between repositories and you also have the ability to select only a subset of tasks.
+This simple but powerful tool ensures that all your teams, tools, and pipelines speak the same language—without requiring everyone to reinvent the wheel.
 
-### Project repository
+### 📁 Project integration
 
-As I said previously we can consume easily these shared tasks and it's pretty easy
-
-In your `mise.toml` you will add 2 new tasks
+Using the shared tasks in your own project is easy. Just update your `mise.toml` like this:
 
 ```toml
 [task_config]
@@ -194,15 +199,13 @@ wait_for = "download-shared-tasks"
 run = "mise download-shared-tasks <branch/tag> aws,terraform,terragrunt"
 ```
 
-And it's enough you are ready to use you shared tasks.
-
-Just execute
+Then simply run:
 
 ```shell
 mise apply-shared-tasks
 ```
 
-And in your project you have now your shared and versioned tasks.
+And voilà—you’ve got consistent, versioned, ready-to-use tasks in your project.
 
 ## 📚 References & Next Steps
 
