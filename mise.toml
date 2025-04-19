@@ -1,5 +1,5 @@
 [tools]
-hugo-extended = "latest"
+hugo-extended = "0.145.0"
 
 [settings]
 experimental = true
@@ -10,7 +10,7 @@ run = "hugo build --minify"
 
 [tasks.serve]
 description = "Serve the site"
-run = "hugo serve -D"
+run = "hugo serve"
 
 [tasks.theme-install]
 description = "Install the theme"
