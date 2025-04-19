@@ -3,33 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.ace-dev.me/categories/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/categories/devops/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/tags/devops/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-2/</loc>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/tags/mise/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/posts/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/tags/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-1/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/categories/work/</loc>
-    <lastmod>2025-04-19T00:00:00+02:00</lastmod>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/tags/work/</loc>
+    <lastmod>2025-04-19T14:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-1/</loc>
     <lastmod>2025-04-19T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/tags/automation/</loc>

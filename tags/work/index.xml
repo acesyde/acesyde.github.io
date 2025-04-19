@@ -6,8 +6,17 @@
     <description>Recent content in Work on Tech Blog - Acesyde</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Apr 2025 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 19 Apr 2025 14:00:00 +0200</lastBuildDate>
     <atom:link href="https://blog.ace-dev.me/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How We Use Mise and DevContainers to Simplify Development</title>
+      <link>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-2/</link>
+      <pubDate>Sat, 19 Apr 2025 14:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-2/</guid>
+      <description>&lt;p&gt;In our development team, consistency and automation are essential. Here&amp;rsquo;s how we use Microsoft DevContainers and the fantastic &lt;code&gt;mise&lt;/code&gt; tool to streamline tooling and environment setup. The combination of both provides a clean, reliable, and reproducible workflow that scales with the team.&lt;/p&gt;
+&lt;h2 id=&#34;devcontainers-and-mise-&#34;&gt;DevContainers and Mise ❤️&lt;/h2&gt;
+&lt;p&gt;Using Microsoft DevContainers has significantly improved our development workflow by offering consistent environments across different machines. They make onboarding faster and smoother, especially for new team members, by encapsulating all dependencies and tools. However, one of the trade-offs is the added complexity introduced by layered features like Dockerfile extensions and Compose setups. These layers can sometimes obscure what&amp;rsquo;s really happening under the hood, making debugging and customization more challenging.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Journey from Makefiles to Mise: Transforming Our Development Workflow</title>
       <link>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-1/</link>
