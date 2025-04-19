@@ -9,11 +9,11 @@
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://blog.ace-dev.me/tags/zigbee/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to automate your swimming pool</title>
+      <title>How to Automate Your Swimming Pool with Home Assistant</title>
       <link>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-swimmingpool/</link>
       <pubDate>Sun, 08 Jan 2023 00:00:00 +0200</pubDate>
       <guid>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-swimmingpool/</guid>
-      <description>&lt;p&gt;Having a pool is a good idea because previous summers have been so hot, as well as for relaxing after work, but in the other hand, it can be very useful to limit the power consumption of the pool pump motor.&lt;/p&gt;</description>
+      <description>&lt;p&gt;A swimming pool is an excellent addition to any home, especially during hot summer months. Not only does it provide a perfect way to relax after work, but with proper automation, you can also optimize energy consumption by controlling the pool pump motor efficiently.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

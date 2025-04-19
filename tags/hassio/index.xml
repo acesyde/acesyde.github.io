@@ -9,18 +9,18 @@
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://blog.ace-dev.me/tags/hassio/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to automate your swimming pool</title>
+      <title>How to Automate Your Swimming Pool with Home Assistant</title>
       <link>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-swimmingpool/</link>
       <pubDate>Sun, 08 Jan 2023 00:00:00 +0200</pubDate>
       <guid>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-swimmingpool/</guid>
-      <description>&lt;p&gt;Having a pool is a good idea because previous summers have been so hot, as well as for relaxing after work, but in the other hand, it can be very useful to limit the power consumption of the pool pump motor.&lt;/p&gt;</description>
+      <description>&lt;p&gt;A swimming pool is an excellent addition to any home, especially during hot summer months. Not only does it provide a perfect way to relax after work, but with proper automation, you can also optimize energy consumption by controlling the pool pump motor efficiently.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>How to automate your gate</title>
+      <title>How to Automate Your Gate with Home Assistant and ESPHome</title>
       <link>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-gate/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0200</pubDate>
       <guid>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-gate/</guid>
-      <description>&lt;p&gt;Since I built my house I want to automate everything and now it&amp;rsquo;s time to start a new project, my gate.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Since building my house, I&amp;rsquo;ve been passionate about automating everything. Today, I&amp;rsquo;m excited to share my latest project: automating my gate.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
