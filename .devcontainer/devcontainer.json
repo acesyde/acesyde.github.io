@@ -1,0 +1,33 @@
+{
+  "name": "acesyde.github.io",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/mise:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hverlin.mise-vscode",
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-github-actions"
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "source": "mise-data-volume",
+      "target": "/mnt/mise-data",
+      "type": "volume"
+    },
+    {
+      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.ssh",
+      "target": "/home/vscode/.ssh,readonly",
+      "type": "bind"
+    }
+  ],
+  "containerEnv": {
+    "MISE_DATA_DIR": "/mnt/mise-data"
+  },
+  "postCreateCommand": "sudo chown -R vscode:vscode /mnt/mise-data"
+}
