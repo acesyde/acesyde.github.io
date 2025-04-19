@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Zigbee on Tech Blog - Acesyde</title>
-    <link>https://blog.ace-dev.fr/tags/zigbee/</link>
+    <link>https://blog.ace-dev.me/tags/zigbee/</link>
     <description>Recent content in Zigbee on Tech Blog - Acesyde</description>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://blog.ace-dev.fr/tags/zigbee/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.ace-dev.me/tags/zigbee/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to automate your swimming pool</title>
-      <link>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-swimmingpool/</link>
+      <link>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-swimmingpool/</link>
       <pubDate>Sun, 08 Jan 2023 00:00:00 +0200</pubDate>
-      <guid>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-swimmingpool/</guid>
+      <guid>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-swimmingpool/</guid>
       <description>&lt;p&gt;Having a pool is a good idea because previous summers have been so hot, as well as for relaxing after work, but in the other hand, it can be very useful to limit the power consumption of the pool pump motor.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.ace-dev.fr/tags/automation/</loc>
+    <loc>https://blog.ace-dev.me/tags/automation/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/categories/</loc>
+    <loc>https://blog.ace-dev.me/categories/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/tags/hassio/</loc>
+    <loc>https://blog.ace-dev.me/categories/hassio/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/categories/hassio/</loc>
+    <loc>https://blog.ace-dev.me/tags/hassio/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/tags/home/</loc>
+    <loc>https://blog.ace-dev.me/categories/home/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/categories/home/</loc>
+    <loc>https://blog.ace-dev.me/tags/home/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-swimmingpool/</loc>
+    <loc>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-swimmingpool/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/posts/</loc>
+    <loc>https://blog.ace-dev.me/posts/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/tags/</loc>
+    <loc>https://blog.ace-dev.me/tags/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/</loc>
+    <loc>https://blog.ace-dev.me/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/tags/zigbee/</loc>
+    <loc>https://blog.ace-dev.me/tags/zigbee/</loc>
     <lastmod>2023-01-08T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/tags/esphome/</loc>
+    <loc>https://blog.ace-dev.me/tags/esphome/</loc>
     <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/posts/2023/01/howto-automate-your-gate/</loc>
+    <loc>https://blog.ace-dev.me/posts/2023/01/howto-automate-your-gate/</loc>
     <lastmod>2023-01-07T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.fr/about/</loc>
+    <loc>https://blog.ace-dev.me/about/</loc>
   </url><url>
-    <loc>https://blog.ace-dev.fr/archives/</loc>
+    <loc>https://blog.ace-dev.me/archives/</loc>
   </url><url>
-    <loc>https://blog.ace-dev.fr/search/</loc>
+    <loc>https://blog.ace-dev.me/search/</loc>
   </url>
 </urlset>
