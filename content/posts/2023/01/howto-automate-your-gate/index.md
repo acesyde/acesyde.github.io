@@ -1,49 +1,49 @@
 ---
-title: "How to automate your gate"
+title: "How to Automate Your Gate with Home Assistant and ESPHome"
 date: 2023-01-07T00:00:00+02:00
 tags: ["hassio", "esphome", "home", "automation"]
 categories: ["hassio", "home"]
 showToc: false
 cover:
   image: "cover_came.jpg"
-  alt: "My gate"
-  title: "My gate"
+  alt: "CAME Gate Automation Setup"
+  title: "CAME Gate Automation Setup"
   relative: false
 ---
 
-Since I built my house I want to automate everything and now it's time to start a new project, my gate.
+Since building my house, I've been passionate about automating everything. Today, I'm excited to share my latest project: automating my gate.
 
 <!--more-->
 
-# How to do
+# Implementation Guide
 
-## Hardware
+## Hardware Selection
 
-So I bought a `CAME BX-243` and it does not support home automation natively.
+I chose the `CAME BX-243` gate opener, which doesn't support home automation natively.
 
 ![CAME BX-243](came_bx243.jpg)
 
-The `CAME` brand is slightly more expensive than the others but their equipment is much more solid and qualitative.
+While CAME products are slightly more expensive than alternatives, their equipment is known for superior build quality and reliability.
 
-The installation is a bit complicated when you do it for the first time, but within a few hours the gate can be opened and closed without any problems
+The installation process can be challenging for first-timers, but with proper attention to detail, you can have your gate fully operational within a few hours.
 
-## Time to automate
+## Automation Requirements
 
-When I wanted to realize my automation I had some criteria
+When planning the automation, I established several key criteria:
 
 - Home Assistant compatibility
-- Easy to use and configure
-- Local polling
-- Open source based
-- The Smallest possible to fit in the gate box
+- User-friendly configuration
+- Local operation (no cloud dependency)
+- Open-source based solution
+- Compact size to fit within the gate control box
 
-After several hours of research, I found this amazing mod
+After extensive research, I discovered the perfect solution:
 
 ![Shelly UNI](shelly_uni_x1.jpg)
 
 [Shelly UNI on Amazon](https://amzn.eu/d/dJ7bBGh) - ~15€
 
-### Wiring
+### Wiring Configuration
 
 ![Motherboard](came_motherboard.png)
 
@@ -55,18 +55,18 @@ After several hours of research, I found this amazing mod
 | OUT1 GND   | 2    |
 | OUT1 AC/DC | 7    |
 
-Like this
+Final installation:
 
 ![Installation](installation.jpeg)
 
-### How to flash it
+### Firmware Installation
 
-You can use it out of the box but I want to flash it with esphome and it's easy
+While the device works out of the box, I chose to flash it with ESPHome for better integration. Here's the process:
 
-* Connect the device to my network
-* Flash it with tasmota (https://github.com/yaourdt/mgos-to-tasmota)
-* Flash it with tasmota minimal (http://ota.tasmota.com/tasmota/tasmota-minimal.bin.gz)
-* Generate an esphome binary for my device like this in your home assistant ESPHome addons
+1. Connect the device to your network
+2. Flash with Tasmota using [mgos-to-tasmota](https://github.com/yaourdt/mgos-to-tasmota)
+3. Flash with Tasmota minimal firmware (http://ota.tasmota.com/tasmota/tasmota-minimal.bin.gz)
+4. Generate an ESPHome binary using the following configuration in your Home Assistant ESPHome addon:
 
 ```yaml
 esphome:
@@ -146,8 +146,8 @@ cover:
     assumed_state: false
 ```
 
-Now you can open/close the gate and know its state with your favorite home automation system.
+With this setup, you can now control your gate and monitor its status through your preferred home automation system.
 
 ![Hassio](hassio_gate.png)
 
-Et voilà !
+That's it! Your gate is now fully automated and integrated with Home Assistant.
