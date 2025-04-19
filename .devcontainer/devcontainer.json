@@ -9,7 +9,8 @@
       "extensions": [
         "hverlin.mise-vscode",
         "redhat.vscode-yaml",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-github-actions"
       ]
     }
   },
@@ -18,6 +19,11 @@
       "source": "mise-data-volume",
       "target": "/mnt/mise-data",
       "type": "volume"
+    },
+    {
+      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.ssh",
+      "target": "/home/vscode/.ssh,readonly",
+      "type": "bind"
     }
   ],
   "containerEnv": {
