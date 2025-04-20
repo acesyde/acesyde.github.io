@@ -6,8 +6,18 @@
     <description>Recent content in Mise on Tech Blog - Acesyde</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Apr 2025 14:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://blog.ace-dev.me/tags/mise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sharing Tasks with Mise – How We Standardize and Scale Across Projects</title>
+      <link>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-3/</link>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-3/</guid>
+      <description>&lt;h2 id=&#34;-reduce-your-boilerplate&#34;&gt;🧼 Reduce your boilerplate&lt;/h2&gt;
+&lt;p&gt;As mentioned in &lt;a href=&#34;https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-1/&#34;&gt;Part 1&lt;/a&gt;, we’ve moved away from Makefiles and bash scripts in favor of &lt;code&gt;mise&lt;/code&gt;. In this final post of the series, I’ll walk you through how we’ve taken things further by sharing tasks across projects and environments—speeding up onboarding and keeping things consistent between dev machines and CI/CD.&lt;/p&gt;
+&lt;h2 id=&#34;-how-tasks-work-in-mise&#34;&gt;⚙️ How tasks work in &lt;code&gt;mise&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;mise&lt;/code&gt; offers multiple ways to define and run tasks. After experimenting, we’ve decided to use a mix of both TOML-based and file-based tasks to get the best of both worlds.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How We Use Mise and DevContainers to Simplify Development</title>
       <link>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-2/</link>
