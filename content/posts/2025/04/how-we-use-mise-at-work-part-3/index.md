@@ -5,7 +5,7 @@ tags: ["mise", "work", "devops"]
 categories: ["work", "devops"]
 showToc: false
 cover:
-  image: "mise-part3-banner.png"
+  image: "mise-part3-banner.webp"
   alt: "Sharing Tasks with Mise"
   title: "Sharing Tasks with Mise"
   relative: false
