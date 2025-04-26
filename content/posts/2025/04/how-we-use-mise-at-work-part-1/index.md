@@ -5,7 +5,7 @@ tags: ["mise", "work", "devops"]
 categories: ["work", "devops"]
 showToc: false
 cover:
-  image: "mise.png"
+  image: "mise.webp"
   alt: "Mise"
   title: "Mise"
   relative: false
