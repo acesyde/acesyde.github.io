@@ -1,6 +1,6 @@
 {
   "name": "acesyde.github.io",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
     "ghcr.io/devcontainers-extra/features/mise:1": {}
   },
@@ -28,6 +28,9 @@
   ],
   "containerEnv": {
     "MISE_DATA_DIR": "/mnt/mise-data"
+  },
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/mnt/mise-data/shims"
   },
   "postCreateCommand": "sudo chown -R vscode:vscode /mnt/mise-data"
 }

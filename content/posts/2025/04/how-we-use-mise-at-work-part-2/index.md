@@ -102,6 +102,9 @@ Here's a complete sample configuration that we use in our company. It brings tog
   "containerEnv": {
     "MISE_DATA_DIR": "/mnt/mise-data"
   },
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/mnt/mise-data/shims"
+  },
   "postCreateCommand": ".devcontainer/scripts/postCreate.sh",
   "postStartCommand": ".devcontainer/scripts/postStart.sh"
 }
@@ -111,7 +114,7 @@ This setup uses a shared mise data volume for tool caching, mounts your SSH keys
 
 ### 🧩 Example `postCreate.sh` Script
 
-Here’s an example of a `postCreate.sh` script we use to finalize container setup and ensure proper permissions:
+Here's an example of a `postCreate.sh` script we use to finalize container setup and ensure proper permissions:
 
 ```bash
 #!/usr/bin/env bash
@@ -146,7 +149,7 @@ This script ensures that the mise data directory is writable by the vscode user 
 
 ### 🧩 Example `postStart.sh` Script
 
-Here’s the `postStart.sh` script we use to complete environment configuration and setup once the container is running:
+Here's the `postStart.sh` script we use to complete environment configuration and setup once the container is running:
 
 ```bash
 #!/usr/bin/env bash
@@ -209,6 +212,20 @@ print_command "Environment is configured!" "✅"
 ```
 
 This script not only activates mise in supported shells, but also installs project tools, sets up pre-commit hooks, and adjusts global Git settings—wrapping up your container boot process with a clean and ready-to-code environment.
+
+## 💡 Tips and tricks
+
+### 🔌 PATH configuration for VS Code extensions
+
+Many VS Code extensions require access to CLI tools but don't always expose configuration options for custom tool paths. This critical setting ensures extensions can find and use tools managed by Mise:
+
+```json
+"remoteEnv": {
+  "PATH": "${containerEnv:PATH}:/mnt/mise-data/shims"
+}
+```
+
+This configuration extends the container's PATH environment variable to include Mise's shims directory, allowing extensions to seamlessly use your project's specific tool versions.
 
 ## 📚 References & Next Steps
 
