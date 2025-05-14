@@ -1,21 +1,13 @@
 [tools]
-hugo-extended = "0.146.7"
+node = "22"
 
 [settings]
 experimental = true
 
 [tasks.build]
 description = "Build the site"
-run = "hugo build --minify"
+run = "npm run build"
 
 [tasks.serve]
 description = "Serve the site"
-run = "hugo serve"
-
-[tasks.theme-install]
-description = "Install the theme"
-run = "git submodule update --init --recursive"
-
-[tasks.theme-update]
-description = "Update the theme"
-run = "git submodule update --remote --merge"
+run = "npm run dev -- --host"
