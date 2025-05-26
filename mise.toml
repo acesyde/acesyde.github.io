@@ -1,5 +1,5 @@
 [tools]
-hugo-extended = "0.146.7"
+hugo-extended = "0.147.5"
 
 [settings]
 experimental = true
