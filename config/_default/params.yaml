@@ -48,12 +48,17 @@ homeInfoParams:
 socialIcons:
   - name: bluesky
     url: "https://bsky.app/profile/ace-dev.me"
+  - name: mastodon
+    url: "https://piaille.fr/@acesyde"
   - name: linkedin
     url: "https://www.linkedin.com/in/pierre-emmanuel-mercier-10b82a37/"
   - name: github
     url: "https://github.com/acesyde"
   - name: rss
     url: "https://blog.ace-dev.me/sitemap.xml"
+
+social:
+  fediverse_creator: "@acesyde@piaille.fr"
 
 analytics:
   google:

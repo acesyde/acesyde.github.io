@@ -1,7 +1,6 @@
 [tools.hugo-extended]
-version = "0.146.7"
+version = "0.147.5"
 backend = "aqua:gohugoio/hugo/hugo-extended"
 
 [tools.hugo-extended.checksums]
-"hugo_extended_0.146.7_darwin-universal.tar.gz" = "sha256:f9eeceda12f3b602889db91146f2b204f2d98f9c58164ff0947b45b9debae53e"
-"hugo_extended_0.146.7_linux-arm64.tar.gz" = "sha256:7144c637db0d9ef95e8290302fce328c05d7376eed1236aabc3f4431014a5fff"
+"hugo_extended_0.147.5_linux-amd64.tar.gz" = "sha256:734d1db3c6f42f6f353f4a6a7d345057b442a33e1ecacc2434d5421d33720aea"
