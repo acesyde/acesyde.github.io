@@ -143,6 +143,18 @@ fi
 print_command "Setting up permissions..." "🔧"
 sudo chown -R vscode:vscode /mnt/mise-data
 print_command "Permissions are set up!" "✅"
+
+#------------------------------
+# Mise
+#------------------------------
+
+print_command "Configuring Mise..." "🔧"
+
+$MISE trust .
+echo "eval \"\$($MISE activate bash)\"" >> ~/.bashrc
+echo "eval \"\$($MISE activate zsh)\"" >> ~/.zshrc
+
+print_command "Mise is configured!" "✅"
 ```
 
 This script ensures that the mise data directory is writable by the vscode user inside the container, which avoids permission issues when installing or using tools.
@@ -174,14 +186,6 @@ if [ -z "$MISE" ]; then
     exit 1
 fi
 
-print_command "Configuring Mise..." "🔧"
-
-$MISE trust
-echo "eval $($MISE activate bash)" >> ~/.bashrc
-echo "eval $($MISE activate zsh)" >> ~/.zshrc
-
-print_command "Mise is configured!" "✅"
-
 print_command "Setting up Mise environment..." "🚀"
 
 $MISE i
@@ -196,14 +200,14 @@ GIT=$(which git)
 #------------------------------
 print_command "Configuring pre-commit..." "🔧"
 
-$MISE exec -- pre-commit install --install-hooks
-$MISE exec -- pre-commit install --hook-type commit-msg
+$MISE exec -- pre-commit install --install-hooks --hook-type commit-msg
 
 print_command "Pre-commit is configured!" "✅"
 
 #------------------------------
 # CONFIGURE ENV
 #------------------------------
+
 print_command "Configuring environment..." "🔧"
 
 $GIT config --global pull.rebase false
