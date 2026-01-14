@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.svelte';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const tags = new Set<string>();
+  
+  posts.forEach((post) => {
+    post.data.tags?.forEach((tag) => tags.add(tag));
+  });
+  
+  return Array.from(tags).map((tag) => ({
+    params: { tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+const allPosts = await getCollection('posts');
+const taggedPosts = allPosts
+  .filter((post) => post.data.tags?.includes(tag))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title={`Articles tagués "${tag}"`}>
+  <div class="tag-page">
+    <div class="container">
+      <header class="tag-header">
+        <h1>Articles tagués "#{tag}"</h1>
+        <p class="tag-count">{taggedPosts.length} article{taggedPosts.length > 1 ? 's' : ''}</p>
+      </header>
+      
+      <div class="tagged-posts">
+        {taggedPosts.length > 0 ? (
+          taggedPosts.map((post) => (
+            <ArticleCard client:load post={post} />
+          ))
+        ) : (
+          <p class="no-posts">Aucun article trouvé pour ce tag.</p>
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tag-page {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .tag-header {
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+  }
+  
+  .tag-header h1 {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .tag-count {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+  }
+  
+  .tagged-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .no-posts {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-2xl);
+  }
+</style>

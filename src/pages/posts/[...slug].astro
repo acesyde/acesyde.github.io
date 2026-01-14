@@ -1,0 +1,49 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  
+  return posts.map((post) => {
+    // Extract slug from the file path
+    // posts are in format like: posts/2025/04/how-we-use-mise-at-work-part-1/index.md
+    // We want slug to be: 2025/04/how-we-use-mise-at-work-part-1
+    const slugParts = post.id.split('/');
+    slugParts.pop(); // Remove 'index.md'
+    slugParts.shift(); // Remove 'posts'
+    const slug = slugParts.join('/');
+    
+    return {
+      params: { slug },
+      props: { post: post as CollectionEntry<'posts'> },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props as Props;
+const { Content } = await post.render();
+
+// Extract slug from post.id (same logic as in getStaticPaths)
+const slugParts = post.id.split('/');
+slugParts.pop(); // Remove 'index.md'
+slugParts.shift(); // Remove 'posts'
+const slug = slugParts.join('/');
+---
+
+<PostLayout
+  title={post.data.title}
+  description={post.data.title}
+  date={post.data.date}
+  tags={post.data.tags}
+  categories={post.data.categories}
+  cover={post.data.cover}
+  showToc={post.data.showToc}
+  slug={slug}
+>
+  <Content />
+</PostLayout>

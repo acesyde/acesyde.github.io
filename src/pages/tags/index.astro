@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+const tagCounts = new Map<string, number>();
+
+posts.forEach((post) => {
+  post.data.tags?.forEach((tag) => {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  });
+});
+
+const sortedTags = Array.from(tagCounts.entries())
+  .sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="Tags">
+  <div class="tags-page">
+    <div class="container">
+      <header class="tags-header">
+        <h1>Tous les tags</h1>
+        <p>{sortedTags.length} tag{sortedTags.length > 1 ? 's' : ''} au total</p>
+      </header>
+      
+      <div class="tags-list">
+        {sortedTags.map(([tag, count]) => (
+          <a href={`/tags/${tag}`} class="tag-item">
+            <span class="tag-name">#{tag}</span>
+            <span class="tag-count">{count}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tags-page {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .tags-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .tags-header h1 {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .tags-header p {
+    color: var(--color-text-secondary);
+  }
+  
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+  
+  .tag-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+  
+  .tag-item:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+  }
+  
+  .tag-item:hover .tag-name,
+  .tag-item:hover .tag-count {
+    color: white;
+  }
+  
+  .tag-name {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  
+  .tag-count {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    background-color: var(--color-bg);
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+  }
+  
+  .tag-item:hover .tag-count {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+</style>

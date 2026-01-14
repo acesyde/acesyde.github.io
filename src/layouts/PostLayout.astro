@@ -1,0 +1,198 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.svelte';
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  tags?: string[];
+  categories?: string[];
+  cover?: {
+    image: string;
+    alt?: string;
+    title?: string;
+    relative?: boolean;
+  };
+  showToc?: boolean;
+  slug?: string;
+}
+
+const { 
+  title, 
+  description, 
+  date, 
+  tags = [], 
+  categories = [],
+  cover,
+  showToc = true,
+  slug = ''
+} = Astro.props;
+
+// Headings will be extracted client-side by the TableOfContents component
+const headings: Array<{ id: string; text: string; level: number }> = [];
+---
+
+<BaseLayout 
+  title={title}
+  description={description || title}
+  image={cover ? (cover.relative ? `/posts/${slug}/${cover.image}` : cover.image) : undefined}
+>
+  <article class="post">
+    <div class="container">
+      <header class="post-header">
+        <h1 class="post-title">{title}</h1>
+        
+        <div class="post-meta">
+          <time datetime={date.toISOString()}>
+            {date.toLocaleDateString('fr-FR', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          
+          {tags.length > 0 && (
+            <div class="post-tags">
+              {tags.map((tag) => (
+                <a href={`/tags/${tag}`} class="tag">#{tag}</a>
+              ))}
+            </div>
+          )}
+        </div>
+        
+        {cover && (
+          <div class="post-cover">
+            <img 
+              src={cover.relative ? `/posts/${slug}/${cover.image}` : cover.image}
+              alt={cover.alt || title}
+              title={cover.title}
+            />
+          </div>
+        )}
+      </header>
+      
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <slot />
+        </div>
+        
+        {showToc && (
+          <aside class="post-sidebar">
+            <TableOfContents client:load />
+          </aside>
+        )}
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .post-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .post-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+  }
+  
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+  
+  .tag {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+  
+  .post-cover {
+    margin-top: var(--spacing-xl);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .post-cover img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+  }
+  
+  .post-content-wrapper {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+  }
+  
+  .post-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .post-content :global(h2) {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .post-content :global(h2:first-of-type) {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+  }
+  
+  .post-content :global(h2::before) {
+    content: '';
+    display: block;
+    height: 80px;
+    margin-top: -80px;
+    visibility: hidden;
+  }
+  
+  .post-content :global(h3::before) {
+    content: '';
+    display: block;
+    height: 80px;
+    margin-top: -80px;
+    visibility: hidden;
+  }
+  
+  .post-sidebar {
+    flex-shrink: 0;
+    width: 250px;
+  }
+  
+  @media (max-width: 1024px) {
+    .post-content-wrapper {
+      flex-direction: column;
+    }
+    
+    .post-sidebar {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .post-title {
+      font-size: 2rem;
+    }
+  }
+</style>

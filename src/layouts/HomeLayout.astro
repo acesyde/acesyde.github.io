@@ -1,0 +1,70 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Search from '../components/Search.svelte';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Accueil', description = "Blog personnel sur l'informatique, le DIY et les projets techniques" } = Astro.props;
+
+// Get all posts for search
+const allPosts = await getCollection('posts');
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="home">
+    <div class="container">
+      <header class="home-header">
+        <h1 class="home-title">Bienvenue</h1>
+        <p class="home-description">
+          Blog personnel sur l'informatique, le DIY et les projets techniques
+        </p>
+        <div class="home-search">
+          <Search client:load posts={allPosts} />
+        </div>
+      </header>
+      
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .home {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .home-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .home-title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .home-description {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .home-search {
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .home-title {
+      font-size: 2rem;
+    }
+    
+    .home-description {
+      font-size: 1rem;
+    }
+  }
+</style>
