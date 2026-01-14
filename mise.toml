@@ -1,8 +1,9 @@
-[tools]
-hugo-extended = "0.152.1"
 
 [settings]
 experimental = true
+
+[settings.npm]
+package_manager = "pnpm"
 
 [tasks.build]
 description = "Build the site"
@@ -19,3 +20,8 @@ run = "git submodule update --init --recursive"
 [tasks.theme-update]
 description = "Update the theme"
 run = "git submodule update --remote --merge"
+
+[tools]
+node = "24.11.1"
+"npm:astro" = "5.16.9"
+pnpm = "10.28.0"

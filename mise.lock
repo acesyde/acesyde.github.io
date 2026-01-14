@@ -1,3 +1,16 @@
-[[tools.hugo-extended]]
-version = "0.152.1"
-backend = "aqua:gohugoio/hugo/hugo-extended"
+[[tools.astro]]
+version = "1.38.1"
+backend = "github:astronomer/astro-cli[exe=astro]"
+
+[[tools.node]]
+version = "24.11.1"
+backend = "core:node"
+
+[[tools."npm:astro"]]
+version = "5.16.9"
+backend = "npm:astro"
+
+[[tools.pnpm]]
+version = "10.28.0"
+backend = "aqua:pnpm/pnpm"
+"platforms.macos-arm64" = { checksum = "sha256:b6cfee40fcb09e68a874ffbf300eb1ef9dec11302fd03637a4bc605f3f9405cb", url = "https://github.com/pnpm/pnpm/releases/download/v10.28.0/pnpm-macos-arm64"}
