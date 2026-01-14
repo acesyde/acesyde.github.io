@@ -3,6 +3,51 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.svelte';
 import { getCollection } from 'astro:content';
 
+function generateExcerpt(body: string, maxLength: number = 200): string {
+  if (!body) return '';
+  
+  // Remove markdown headers (lines starting with #)
+  let text = body.replace(/^#{1,6}\s+.+$/gm, '');
+  
+  // Remove code blocks
+  text = text.replace(/```[\s\S]*?```/g, '');
+  
+  // Remove inline code
+  text = text.replace(/`[^`]+`/g, '');
+  
+  // Remove markdown links but keep the text
+  text = text.replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1');
+  
+  // Remove images
+  text = text.replace(/!\[([^\]]*)\]\([^\)]+\)/g, '');
+  
+  // Remove bold/italic markdown
+  text = text.replace(/\*\*([^\*]+)\*\*/g, '$1');
+  text = text.replace(/\*([^\*]+)\*/g, '$1');
+  text = text.replace(/__([^_]+)__/g, '$1');
+  text = text.replace(/_([^_]+)_/g, '$1');
+  
+  // Remove list markers
+  text = text.replace(/^[\s]*[-*+]\s+/gm, '');
+  text = text.replace(/^[\s]*\d+\.\s+/gm, '');
+  
+  // Clean up whitespace
+  text = text.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+  
+  // Truncate and add ellipsis if needed
+  if (text.length > maxLength) {
+    // Try to cut at a word boundary
+    const truncated = text.substring(0, maxLength);
+    const lastSpace = truncated.lastIndexOf(' ');
+    if (lastSpace > maxLength * 0.8) {
+      return truncated.substring(0, lastSpace) + '...';
+    }
+    return truncated + '...';
+  }
+  
+  return text;
+}
+
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   const tags = new Set<string>();
@@ -21,7 +66,11 @@ const { tag } = Astro.props;
 const allPosts = await getCollection('posts');
 const taggedPosts = allPosts
   .filter((post) => post.data.tags?.includes(tag))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .map(post => ({
+    post,
+    excerpt: post.data.description || generateExcerpt(post.body || '', 200)
+  }));
 ---
 
 <BaseLayout title={`Articles tagués "${tag}"`}>
@@ -34,8 +83,8 @@ const taggedPosts = allPosts
       
       <div class="tagged-posts">
         {taggedPosts.length > 0 ? (
-          taggedPosts.map((post) => (
-            <ArticleCard client:load post={post} />
+          taggedPosts.map(({ post, excerpt }) => (
+            <ArticleCard client:load post={post} excerpt={excerpt} />
           ))
         ) : (
           <p class="no-posts">Aucun article trouvé pour ce tag.</p>
@@ -48,6 +97,8 @@ const taggedPosts = allPosts
 <style>
   .tag-page {
     padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg-tertiary);
+    min-height: 100vh;
   }
   
   .tag-header {

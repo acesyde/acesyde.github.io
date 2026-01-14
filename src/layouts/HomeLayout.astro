@@ -16,30 +16,37 @@ const allPosts = await getCollection('posts');
 
 <BaseLayout title={title} description={description}>
   <div class="home">
-    <div class="container">
-      <header class="home-header">
-        <h1 class="home-title">Bienvenue</h1>
-        <p class="home-description">
-          Blog personnel sur l'informatique, le DIY et les projets techniques
-        </p>
-        <div class="home-search">
-          <Search client:load posts={allPosts} />
-        </div>
-      </header>
-      
-      <slot />
+    <div class="home-header-wrapper">
+      <div class="container">
+        <header class="home-header">
+          <h1 class="home-title">Bienvenue</h1>
+          <p class="home-description">
+            Blog personnel sur l'informatique, le DIY et les projets techniques
+          </p>
+          <div class="home-search">
+            <Search client:load posts={allPosts} />
+          </div>
+        </header>
+      </div>
     </div>
+    
+    <slot />
   </div>
 </BaseLayout>
 
 <style>
   .home {
-    padding: var(--spacing-xl) 0;
+    padding: 0;
+  }
+  
+  .home-header-wrapper {
+    background-color: var(--color-bg-tertiary);
+    padding: var(--spacing-2xl) 0;
   }
   
   .home-header {
     text-align: center;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: 0;
   }
   
   .home-title {
@@ -59,6 +66,10 @@ const allPosts = await getCollection('posts');
   }
   
   @media (max-width: 768px) {
+    .home-header-wrapper {
+      padding: var(--spacing-xl) 0;
+    }
+    
     .home-title {
       font-size: 2rem;
     }
