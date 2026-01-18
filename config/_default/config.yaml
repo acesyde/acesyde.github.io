@@ -2,8 +2,7 @@ baseURL: "https://blog.ace-dev.me"
 languageCode: en-us
 title: Tech Blog - Acesyde
 theme: PaperMod
-
-googleAnalytics: G-XM717878RZ
+env: production
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
