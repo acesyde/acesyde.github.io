@@ -4,10 +4,45 @@
     <title>Tags on Tech Blog - Acesyde</title>
     <link>https://blog.ace-dev.me/tags/</link>
     <description>Recent content in Tags on Tech Blog - Acesyde</description>
-    <generator>Hugo -- 0.152.1</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0200</lastBuildDate>
+    <generator>Hugo -- 0.154.5</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://blog.ace-dev.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bluetooth</title>
+      <link>https://blog.ace-dev.me/tags/bluetooth/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/tags/bluetooth/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dual-Boot</title>
+      <link>https://blog.ace-dev.me/tags/dual-boot/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/tags/dual-boot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fedora</title>
+      <link>https://blog.ace-dev.me/tags/fedora/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/tags/fedora/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://blog.ace-dev.me/tags/linux/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://blog.ace-dev.me/tags/windows/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/tags/windows/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Devops</title>
       <link>https://blog.ace-dev.me/tags/devops/</link>

@@ -4,10 +4,19 @@
     <title>Tech Blog - Acesyde</title>
     <link>https://blog.ace-dev.me/</link>
     <description>Recent content on Tech Blog - Acesyde</description>
-    <generator>Hugo -- 0.152.1</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0200</lastBuildDate>
+    <generator>Hugo -- 0.154.5</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://blog.ace-dev.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dual-Booting Fedora and Windows: How to Sync Bluetooth Link Keys Without Leaving Linux</title>
+      <link>https://blog.ace-dev.me/posts/2026/01/howto-sync-bluetooth-link-keys-fedora-windows/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/posts/2026/01/howto-sync-bluetooth-link-keys-fedora-windows/</guid>
+      <description>&lt;p&gt;If you are a dual-boot user running &lt;strong&gt;Fedora 43&lt;/strong&gt; and &lt;strong&gt;Windows&lt;/strong&gt;, you have certainly encountered this frustrating issue: you pair your Bluetooth soundbar on Linux, then on Windows, but when you return to Linux, the connection is lost.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; The MAC addresses and the Link Key used in this tutorial (e.g., &lt;code&gt;88:C9:E8...&lt;/code&gt; and &lt;code&gt;A5AF8E...&lt;/code&gt;) are &lt;strong&gt;fictional examples&lt;/strong&gt;. You must identify and use the specific values belonging to your own hardware.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Sharing Tasks with Mise – How We Standardize and Scale Across Projects</title>
       <link>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-3/</link>
