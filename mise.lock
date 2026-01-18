@@ -1,3 +1,4 @@
 [[tools.hugo-extended]]
-version = "0.152.1"
+version = "0.154.5"
 backend = "aqua:gohugoio/hugo/hugo-extended"
+"platforms.linux-x64" = { checksum = "sha256:372d2f0538b24d2bb9285f0583c1e3b02d023ec2c2b8eb90e5c3bbfb3139fb13", url = "https://github.com/gohugoio/hugo/releases/download/v0.154.5/hugo_extended_0.154.5_linux-amd64.tar.gz"}
