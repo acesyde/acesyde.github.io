@@ -1,5 +1,5 @@
 ---
-title: "Sharing Tasks with Mise – How We Standardize and Scale Across Projects"
+title: "Sharing Tasks with Mise - How We Standardize and Scale Across Projects"
 date: 2025-04-20T00:00:00+02:00
 tags: ["mise", "work", "devops"]
 categories: ["work", "devops"]
@@ -13,11 +13,11 @@ cover:
 
 ## 🧼 Reduce your boilerplate
 
-As mentioned in [Part 1](/posts/2025/04/how-we-use-mise-at-work-part-1), we’ve moved away from Makefiles and bash scripts in favor of `mise`. In this final post of the series, I’ll walk you through how we’ve taken things further by sharing tasks across projects and environments—speeding up onboarding and keeping things consistent between dev machines and CI/CD.
+As mentioned in [Part 1](/posts/2025/04/how-we-use-mise-at-work-part-1), we've moved away from Makefiles and bash scripts in favor of `mise`. In this final post of the series, I'll walk you through how we've taken things further by sharing tasks across projects and environments—speeding up onboarding and keeping things consistent between dev machines and CI/CD.
 
 ## ⚙️ How tasks work in `mise`
 
-`mise` offers multiple ways to define and run tasks. After experimenting, we’ve decided to use a mix of both TOML-based and file-based tasks to get the best of both worlds.
+`mise` offers multiple ways to define and run tasks. After experimenting, we've decided to use a mix of both TOML-based and file-based tasks to get the best of both worlds.
 
 ### TOML-based tasks
 
@@ -29,11 +29,11 @@ description = "Serve the site"
 run = "hugo serve"
 ```
 
-That’s easy and declarative—but if you need more logic or control, it gets limiting fast.
+That's easy and declarative—but if you need more logic or control, it gets limiting fast.
 
 ### File-based tasks
 
-For more flexibility, we use [file tasks](https://mise.jdx.dev/tasks/file-tasks.html). These are regular scripts that live in files. You can use any scripting language, but we’ve chosen to stick with `bash`. Why? Because a lot of our previous tooling was already in bash and Makefiles, so migrating was mostly a copy-paste job.
+For more flexibility, we use [file tasks](https://mise.jdx.dev/tasks/file-tasks.html). These are regular scripts that live in files. You can use any scripting language, but we've chosen to stick with `bash`. Why? Because a lot of our previous tooling was already in bash and Makefiles, so migrating was mostly a copy-paste job.
 
 Example:
 
@@ -191,7 +191,7 @@ includes = ["shared-tasks", "tasks"]
 [tasks.download-shared-tasks]
 description = "Download shared tasks"
 hide = true
-file = "git::ssh://git@github.com:owner/mise-tasks.git//shared-tasks/download-tasks?ref=<branch/tag>"
+file = "git::ssh://git@github.com/owner/mise-tasks.git//shared-tasks/download-tasks?ref=<branch/tag>"
 
 [tasks.apply-shared-tasks]
 description = "📩 Download shared tasks in the current workspace"
@@ -205,7 +205,7 @@ Then simply run:
 mise apply-shared-tasks
 ```
 
-And voilà—you’ve got consistent, versioned, ready-to-use tasks in your project.
+And voilà—you've got consistent, versioned, ready-to-use tasks in your project.
 
 ## 📚 References & Next Steps
 
