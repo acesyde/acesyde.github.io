@@ -1,5 +1,5 @@
 baseURL: "https://blog.ace-dev.me"
-languageCode: en-us
+locale: en-us
 title: Tech Blog - Acesyde
 theme: PaperMod
 env: production
@@ -26,7 +26,7 @@ outputs:
 
 languages:
   en:
-    languageName: "English"
+    label: "English"
     weight: 1
     menu:
       main:
