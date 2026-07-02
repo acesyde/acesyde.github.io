@@ -6,8 +6,39 @@
     <description>Recent content in Mise on Tech Blog - Acesyde</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://blog.ace-dev.me/tags/mise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Get mise.toml Autocomplete in Zed</title>
+      <link>https://blog.ace-dev.me/posts/2026/07/mise-zed-autocomplete/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 +0200</pubDate>
+      <guid>https://blog.ace-dev.me/posts/2026/07/mise-zed-autocomplete/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve adopted &lt;a href=&#34;https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-1/&#34;&gt;&lt;code&gt;mise&lt;/code&gt;&lt;/a&gt; and made the switch to &lt;a href=&#34;https://zed.dev&#34;&gt;Zed&lt;/a&gt;, here&amp;rsquo;s a quick tip to get schema-backed autocomplete and validation for your &lt;code&gt;mise.toml&lt;/code&gt; files right inside the editor.&lt;/p&gt;
+&lt;h2 id=&#34;-the-steps&#34;&gt;🧩 The steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the &lt;strong&gt;TOML&lt;/strong&gt; and &lt;strong&gt;Tombi&lt;/strong&gt; extensions in Zed.&lt;/li&gt;
+&lt;li&gt;Create the file &lt;code&gt;~/.config/tombi/config.toml&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add the following configuration:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;schema&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enabled&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Associate all mise config files with the correct schema&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;schemas&lt;/span&gt;]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://mise.jdx.dev/schema/mise.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;include&lt;/span&gt; = [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/mise.toml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/mise.*.toml&amp;#34;&lt;/span&gt;,          &lt;span style=&#34;color:#75715e&#34;&gt;# mise.local.toml, mise.&amp;lt;env&amp;gt;.toml, mise.windows.toml, ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/.mise.toml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/.mise.*.toml&amp;#34;&lt;/span&gt;,         &lt;span style=&#34;color:#75715e&#34;&gt;# dotfile variants&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/mise/config.toml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/.mise/config.toml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/.config/mise.toml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/.config/mise/config.toml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/.config/mise/conf.d/*.toml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Those globs cover every location &lt;code&gt;mise&lt;/code&gt; recognizes: &lt;code&gt;mise.toml&lt;/code&gt; / &lt;code&gt;.mise.toml&lt;/code&gt;, &lt;code&gt;mise.local.toml&lt;/code&gt;, environment-specific (&lt;code&gt;mise.production.toml&lt;/code&gt;) and platform-specific (&lt;code&gt;mise.macos-arm64.toml&lt;/code&gt;) variants, the &lt;code&gt;mise/config.toml&lt;/code&gt; and &lt;code&gt;.config/mise/&lt;/code&gt; layouts, plus the &lt;code&gt;conf.d/*.toml&lt;/code&gt; drop-ins.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Sharing Tasks with Mise - How We Standardize and Scale Across Projects</title>
       <link>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-3/</link>

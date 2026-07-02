@@ -2,10 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.ace-dev.me/tags/bluetooth/</loc>
-    <lastmod>2026-01-15T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://blog.ace-dev.me/categories/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/categories/devops/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/tags/devops/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/posts/2026/07/mise-zed-autocomplete/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/tags/mise/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/posts/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/tags/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/tags/zed/</loc>
+    <lastmod>2026-07-02T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.ace-dev.me/tags/bluetooth/</loc>
     <lastmod>2026-01-15T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/tags/dual-boot/</loc>
@@ -23,26 +47,8 @@
     <loc>https://blog.ace-dev.me/tags/linux/</loc>
     <lastmod>2026-01-15T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://blog.ace-dev.me/posts/</loc>
-    <lastmod>2026-01-15T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.ace-dev.me/tags/</loc>
-    <lastmod>2026-01-15T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.ace-dev.me/</loc>
-    <lastmod>2026-01-15T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://blog.ace-dev.me/tags/windows/</loc>
     <lastmod>2026-01-15T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.ace-dev.me/categories/devops/</loc>
-    <lastmod>2025-04-20T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.ace-dev.me/tags/devops/</loc>
-    <lastmod>2025-04-20T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.ace-dev.me/tags/mise/</loc>
-    <lastmod>2025-04-20T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.ace-dev.me/posts/2025/04/how-we-use-mise-at-work-part-3/</loc>
     <lastmod>2025-04-20T00:00:00+02:00</lastmod>
