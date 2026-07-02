@@ -1,21 +1,19 @@
 [tools]
-hugo-extended = "0.163.3"
+node = "24"
+pnpm = "latest"
 
-[settings]
-experimental = true
+[tasks.install]
+description = "Install dependencies"
+run = "pnpm install"
+
+[tasks.dev]
+description = "Start the dev server"
+run = "pnpm dev"
 
 [tasks.build]
-description = "Build the site"
-run = "hugo build --minify"
+description = "Build the site (astro check + build + pagefind)"
+run = "pnpm build"
 
-[tasks.serve]
-description = "Serve the site"
-run = "hugo serve"
-
-[tasks.theme-install]
-description = "Install the theme"
-run = "git submodule update --init --recursive"
-
-[tasks.theme-update]
-description = "Update the theme"
-run = "git submodule update --remote --merge"
+[tasks.preview]
+description = "Preview the production build"
+run = "pnpm preview"

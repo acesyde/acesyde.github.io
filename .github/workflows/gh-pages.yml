@@ -3,26 +3,27 @@ name: github pages
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - master # Set a branch to deploy
 
 jobs:
   deploy:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-      
+
       - uses: jdx/mise-action@v4
 
+      - name: Install dependencies
+        run: mise run install
+
       - name: Build
-        run: mise build
+        run: mise run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
           publish_branch: gh-pages
           cname: blog.ace-dev.me
           enable_jekyll: false
