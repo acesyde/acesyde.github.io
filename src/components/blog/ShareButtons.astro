@@ -16,7 +16,9 @@ const linkedinHref = `https://www.linkedin.com/sharing/share-offsite/?url=${enco
 )}`;
 // Bluesky and Mastodon only take a single text field, so the URL is appended.
 const socialText = `${tweetText}\n\n${url}`;
-const blueskyHref = `https://bsky.app/intent/compose?text=${encodeURIComponent(socialText)}`;
+// Bluesky caps posts at 300 characters, so keep its text to title + URL.
+const blueskyText = `${title}\n\n${url}`;
+const blueskyHref = `https://bsky.app/intent/compose?text=${encodeURIComponent(blueskyText)}`;
 // Mastodon's official share tool resolves the reader's instance in-browser.
 const mastodonHref = `https://share.joinmastodon.org/?text=${encodeURIComponent(socialText)}`;
 ---
