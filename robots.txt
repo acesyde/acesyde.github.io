@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://blog.ace-dev.me/sitemap-index.xml
+Sitemap: https://anjay-goel.github.io/sitemap-index.xml
