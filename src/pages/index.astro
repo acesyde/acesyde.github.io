@@ -1,4 +1,5 @@
 ---
+import PostList from "@/components/blog/PostList.astro";
 import { getAllPosts, getPostSortDate, sortMDByDate } from "@/data/post";
 import { showcase } from "@/data/showcase";
 import PageLayout from "@/layouts/Base.astro";
@@ -89,12 +90,7 @@ const siteUrl = (path: string) => absoluteUrl(path, Astro.site);
 		<div class="timeline">
 			{
 				featured && (
-					<a
-						class="post featured"
-						data-astro-prefetch
-						href={withBase(`/posts/${featured.id}/`)}
-						style="--i: 0"
-					>
+					<div class="post featured" style="--i: 0">
 						<div class="post-rail">
 							<time class="post-date" datetime={getPostSortDate(featured).toISOString()}>
 								{formatRailDate(getPostSortDate(featured))}
@@ -103,44 +99,25 @@ const siteUrl = (path: string) => absoluteUrl(path, Astro.site);
 						</div>
 						<div class="post-body">
 							<div class="post-stamp">Latest · {formatStampDate(getPostSortDate(featured))}</div>
-							<h2 class="post-title">{featured.data.title}</h2>
+						<h2 class="post-title">
+								<a class="post-cardlink" data-astro-prefetch href={withBase(`/posts/${featured.id}/`)}>
+									{featured.data.title}
+								</a>
+						</h2>
 							<p class="post-excerpt">{featured.data.description}</p>
 							{!!featured.data.tags?.length && (
 								<div class="post-meta">
 									{featured.data.tags.map((t, i) => (
-										<Fragment>
-											{i > 0 && <span class="dot">·</span>}
-											<span>{t}</span>
-										</Fragment>
+										<Fragment>{i > 0 && <span class="dot">·</span>}<a class="tag" href={withBase(`/tags/${encodeURIComponent(t)}/`)}>{t}</a></Fragment>
 									))}
 								</div>
 							)}
 						</div>
-					</a>
+					</div>
 				)
 			}
 
-			{
-				rest.map((p, idx) => (
-					<a
-						class="post"
-						data-astro-prefetch
-						href={withBase(`/posts/${p.id}/`)}
-						style={`--i: ${idx + 1}`}
-					>
-						<div class="post-rail">
-							<time class="post-date" datetime={getPostSortDate(p).toISOString()}>
-								{formatRailDate(getPostSortDate(p))}
-							</time>
-							<span class="post-dot" aria-hidden="true" />
-						</div>
-						<div class="post-body">
-							<h3 class="post-title">{p.data.title}</h3>
-							<p class="post-preview">{p.data.description}</p>
-						</div>
-					</a>
-				))
-			}
+			<PostList posts={rest} startIndex={1} headingLevel="h3" />
 
 			<div class="archive-link" style={`--i: ${rest.length + 1}`}>
 				<a data-astro-prefetch href={withBase("/posts/")}
@@ -214,7 +191,25 @@ const siteUrl = (path: string) => absoluteUrl(path, Astro.site);
 	}
 	/* ---------- Featured post ---------- */
 	.post.featured .post-body {
+		position: relative;
 		padding-bottom: 56px;
+	}
+	/* Title is the post link; its ::after stretches over the whole card body so
+	   clicking anywhere opens the post, while the tag links sit above it. */
+	.post.featured .post-cardlink {
+		color: inherit;
+		text-decoration: none;
+	}
+	.post.featured .post-cardlink::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+	}
+	.post.featured .post-cardlink:focus-visible {
+		outline: 2px solid hsl(var(--theme-accent));
+		outline-offset: 3px;
+		border-radius: 3px;
 	}
 	.post.featured .post-stamp {
 		font-family: var(--font-mono);
@@ -234,17 +229,38 @@ const siteUrl = (path: string) => absoluteUrl(path, Astro.site);
 		font-size: 18px;
 		line-height: 1.62;
 		color: hsl(var(--theme-text-muted));
-		margin: 0 0 16px;
+		margin: 0 0 14px;
 		max-width: 58ch;
 		word-wrap: break-word;
 		overflow-wrap: anywhere;
 	}
 	.post.featured .post-meta {
+		position: relative;
+		z-index: 2;
 		font-family: var(--font-mono);
 		font-size: 11.5px;
-		color: hsl(var(--theme-text) / 0.72);
+		color: hsl(var(--theme-text) / 0.55);
 		font-variant-numeric: tabular-nums;
 		font-feature-settings: "tnum";
+	}
+	.post.featured .post-meta .tag {
+		color: inherit;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+	.post.featured .post-meta .tag::before {
+		content: "#";
+		color: var(--faint);
+		transition: color 0.2s ease;
+	}
+	.post.featured .post-meta .tag:hover,
+	.post.featured .post-meta .tag:hover::before {
+		color: hsl(var(--theme-accent));
+	}
+	.post.featured .post-meta .tag:focus-visible {
+		outline: 2px solid hsl(var(--theme-accent));
+		outline-offset: 2px;
+		border-radius: 3px;
 	}
 	.post.featured .post-meta .dot {
 		color: var(--faint);

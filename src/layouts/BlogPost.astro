@@ -3,8 +3,9 @@ import { type CollectionEntry, render } from "astro:content";
 import { Image } from "astro:assets";
 
 import ShareButtons from "@/components/blog/ShareButtons.astro";
+import Mermaid from "@/components/blog/Mermaid.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
-import { getAllPosts, sortMDByDate } from "@/data/post";
+import { getAllPosts, getPostSortDate, sortMDByDate } from "@/data/post";
 import { siteConfig } from "@/site-config";
 import { formatBylineDate, formatEyebrowDate } from "@/utils/date";
 import { absoluteUrl, withBase } from "@/utils/path";
@@ -91,9 +92,7 @@ const giscusThemes = import.meta.env.PROD
 				{!!tags?.length && (
 					<div class="post-tags">
 						{tags.map((tag, i) => (
-							<>
-								<span data-pagefind-filter="tag">{tag}</span>{i < tags.length - 1 && <span class="sep">·</span>}
-							</>
+							<><a class="tag-link" data-pagefind-filter="tag" href={withBase(`/tags/${encodeURIComponent(tag)}/`)}>{tag}</a>{i < tags.length - 1 && <span class="sep">·</span>}</>
 						))}
 					</div>
 				)}
@@ -125,6 +124,7 @@ const giscusThemes = import.meta.env.PROD
 			<article class="post-article">
 				<slot />
 			</article>
+			<Mermaid />
 
 			<ShareButtons title={title} url={postUrl} description={description} />
 
@@ -268,6 +268,25 @@ const giscusThemes = import.meta.env.PROD
 		letter-spacing: 0.02em;
 		margin-bottom: 32px;
 		word-break: break-word;
+	}
+	.post-tags .tag-link {
+		color: inherit;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+	.post-tags .tag-link::before {
+		content: "#";
+		color: var(--faint);
+		transition: color 0.2s ease;
+	}
+	.post-tags .tag-link:hover,
+	.post-tags .tag-link:hover::before {
+		color: hsl(var(--theme-accent));
+	}
+	.post-tags .tag-link:focus-visible {
+		outline: 2px solid hsl(var(--theme-accent));
+		outline-offset: 2px;
+		border-radius: 3px;
 	}
 	.post-tags .sep {
 		color: var(--faint);
@@ -444,6 +463,9 @@ const giscusThemes = import.meta.env.PROD
 		word-wrap: break-word;
 		overflow-wrap: anywhere;
 	}
+	.post-article > p + p {
+		text-indent: 1.5em;
+	}
 	.post-article > p:first-of-type::first-letter {
 		font-family: var(--font-serif);
 		font-style: italic;
@@ -465,6 +487,17 @@ const giscusThemes = import.meta.env.PROD
 		color: hsl(var(--theme-text));
 	}
 
+	.post-article h1 {
+		font-family: var(--font-serif);
+		font-weight: 500;
+		font-size: 33px;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		color: hsl(var(--theme-text));
+		margin: 60px 0 22px;
+		word-wrap: break-word;
+		overflow-wrap: anywhere;
+	}
 	.post-article h2 {
 		font-family: var(--font-serif);
 		font-weight: 500;
@@ -479,7 +512,6 @@ const giscusThemes = import.meta.env.PROD
 	.post-article h3 {
 		font-family: var(--font-serif);
 		font-weight: 500;
-		font-style: italic;
 		font-size: 20px;
 		line-height: 1.3;
 		letter-spacing: -0.005em;
@@ -495,6 +527,24 @@ const giscusThemes = import.meta.env.PROD
 		line-height: 1.35;
 		color: hsl(var(--theme-text));
 		margin: 30px 0 12px;
+	}
+	.post-article h5 {
+		font-family: var(--font-serif);
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 1.4;
+		color: hsl(var(--theme-text));
+		margin: 26px 0 10px;
+	}
+	.post-article h6 {
+		font-family: var(--font-mono);
+		font-weight: 500;
+		font-size: 12.5px;
+		line-height: 1.5;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: hsl(var(--theme-text) / 0.6);
+		margin: 24px 0 10px;
 	}
 
 	.post-article a {
@@ -580,7 +630,6 @@ const giscusThemes = import.meta.env.PROD
 	}
 	.post-article ul ul li {
 		font-size: 17px;
-		color: hsl(var(--theme-text-muted));
 		margin-bottom: 6px;
 	}
 	.post-article ul ul li::before {
@@ -606,6 +655,9 @@ const giscusThemes = import.meta.env.PROD
 		color: hsl(var(--theme-accent));
 		font-family: var(--font-mono);
 		font-size: 14px;
+	}
+	.post-article ol {
+		list-style: decimal;
 	}
 
 	.post-article li > p {
@@ -666,9 +718,14 @@ const giscusThemes = import.meta.env.PROD
 		}
 	}
 
+	.post-article h1,
 	.post-article h2,
-	.post-article h3 {
+	.post-article h3,
+	.post-article h4,
+	.post-article h5,
+	.post-article h6 {
 		position: relative;
+		scroll-margin-top: 2rem;
 	}
 	.post-article .heading-anchor {
 		position: absolute;
@@ -680,33 +737,23 @@ const giscusThemes = import.meta.env.PROD
 		font-family: var(--font-mono);
 		font-size: 0.7em;
 		color: hsl(var(--theme-accent));
-		opacity: 0;
+		opacity: 0.4;
 		transition: opacity 0.18s ease;
 		text-decoration: none;
-		padding: 0 0.4em;
+		padding: 0 0.4em 0.15em;
 		background: transparent;
 		border: 0;
 		cursor: pointer;
 	}
 	@media (hover: hover) {
+		.post-article h1:hover .heading-anchor,
 		.post-article h2:hover .heading-anchor,
 		.post-article h3:hover .heading-anchor,
+		.post-article h4:hover .heading-anchor,
+		.post-article h5:hover .heading-anchor,
+		.post-article h6:hover .heading-anchor,
 		.post-article .heading-anchor:focus-visible {
 			opacity: 1;
-		}
-	}
-	@media (hover: none) {
-		.post-article .heading-anchor {
-			opacity: 0.35;
-			position: static;
-			margin-left: 0.4em;
-		}
-	}
-	@media (max-width: 720px) {
-		.post-article .heading-anchor {
-			position: static;
-			margin-left: 0.4em;
-			opacity: 0.35;
 		}
 	}
 	.post-article figure img {
@@ -763,6 +810,7 @@ const giscusThemes = import.meta.env.PROD
 			font-size: 17px;
 			line-height: 1.72;
 		}
+		.post-article h1 { font-size: 28px; margin: 48px 0 18px; }
 		.post-article h2 { font-size: 23px; margin: 44px 0 16px; }
 		.post-article h3 { font-size: 18.5px; margin: 30px 0 12px; }
 		.post-article :not(pre) > code { font-size: 13.5px; }
@@ -775,6 +823,7 @@ const giscusThemes = import.meta.env.PROD
 			font-size: 16px;
 			line-height: 1.7;
 		}
+		.post-article h1 { font-size: 25px; margin: 40px 0 16px; }
 		.post-article h2 { font-size: 20px; margin: 36px 0 14px; }
 		.post-article h3 { font-size: 17px; margin: 26px 0 10px; }
 		.post-article ul { padding-left: 0; }
@@ -874,7 +923,9 @@ const giscusThemes = import.meta.env.PROD
 		s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 	const usedIds = new Set<string>();
 	document
-		.querySelectorAll<HTMLHeadingElement>(".post-article h2, .post-article h3")
+		.querySelectorAll<HTMLHeadingElement>(
+			".post-article h1, .post-article h2, .post-article h3, .post-article h4, .post-article h5, .post-article h6",
+		)
 		.forEach((h) => {
 			const baseId = h.id || slugify(h.textContent ?? "");
 			if (!baseId) return;
@@ -890,6 +941,7 @@ const giscusThemes = import.meta.env.PROD
 			btn.textContent = "#";
 			btn.addEventListener("click", async () => {
 				const url = `${location.origin}${location.pathname}#${id}`;
+				history.replaceState(null, "", `#${id}`);
 				try {
 					await navigator.clipboard.writeText(url);
 					btn.textContent = "✓";

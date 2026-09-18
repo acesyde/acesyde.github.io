@@ -220,10 +220,14 @@ const mastodonHref = `https://share.joinmastodon.org/?text=${encodeURIComponent(
 		btn.addEventListener("click", async () => {
 			const url = btn.dataset.url ?? window.location.href;
 			try {
-				// Clipboard API is available in any secure context (HTTPS / localhost).
 				await navigator.clipboard.writeText(url);
 			} catch {
-				return;
+				const input = document.createElement("input");
+				input.value = url;
+				document.body.appendChild(input);
+				input.select();
+				try { document.execCommand("copy"); } catch {}
+				input.remove();
 			}
 			btn.dataset.copied = "true";
 			btn.setAttribute("aria-label", "Copied");

@@ -3,20 +3,22 @@
 A minimal Astro blog template with serif typography, dark mode, RSS, OG images, and optional Giscus comments and
 analytics.
 
-**Live demo:** [Github Pages](https://anjaygoel.github.io/astro-sienna)
+**Live demo:** [Github Pages](https://anjay-goel.github.io/astro-sienna)
 
 ![Astro Sienna home page in dark and light themes](.github/assets/preview.png)
 
 ## Features
 
-- Astro 6 with content collections (posts and pages, both validated by Zod)
+- Astro 7 with content collections (posts and pages, both validated by Zod)
 - MDX support — embed Astro/JSX components, imports, and JS expressions inside posts
+- Mermaid diagrams in Markdown and MDX, loaded when a diagram approaches the viewport
 - Light and dark mode with a CSS-only theme toggle
 - Self-hosted serif body font ([Newsreader](https://github.com/productiontype/Newsreader)) and mono (JetBrains Mono)
 - Code blocks via [astro-expressive-code](https://expressive-code.com): themes, copy button, terminal frames, line
   highlighting
 - Math via KaTeX (`$inline$` and `$$display$$`)
 - Custom containers (`:::note`, `:::tip`, `:::caution`)
+- Tag pages — post tags link to per-tag archives, with a browsable `/tags/` index
 - Per-post OG images generated at build time (Satori + resvg)
 - RSS feed, sitemap, robots.txt, web manifest
 - Optional [Giscus](https://giscus.app) comments with custom matched themes
@@ -30,7 +32,7 @@ analytics.
 Click **Use this template** on GitHub, or clone directly:
 
 ```sh
-git clone https://github.com/AnjayGoel/astro-sienna.git my-site
+git clone https://github.com/anjay-goel/astro-sienna.git my-site
 cd my-site
 pnpm install
 pnpm dev
@@ -92,6 +94,24 @@ tags: [ tag-one, tag-two ]
 ---
 ```
 
+### Diagrams
+
+Use a `mermaid` fence in a Markdown or MDX post:
+
+````markdown
+```mermaid
+flowchart LR
+    accTitle: Publishing a post
+    accDescr: Write a draft, preview it locally, then publish it.
+    A[Draft] --> B[Preview] --> C[Publish]
+```
+````
+
+Diagrams follow the site's light/dark theme. Mermaid loads locally from the built assets when a diagram comes near
+the viewport. Posts without diagrams only run a small loader; they do not download Mermaid or register its observers.
+Without JavaScript, the diagram source remains readable. Invalid diagrams also keep their source and log an error.
+Wide diagrams scroll horizontally on small screens. Use `accTitle` and `accDescr` for screen-reader descriptions.
+
 The about page is also markdown, at `src/content/page/about.md`. Showcase entries are typed objects in
 `src/data/showcase.ts`; empty the array and the Showcase tab is hidden automatically.
 
@@ -105,10 +125,10 @@ src/
     post/*.md           # blog posts
     page/about.md       # about page
   data/showcase.ts      # showcase entries (or empty for none)
-  components/           # blog/, layout/, ui/
+  components/           # blog/, layout/
   layouts/              # Base.astro, BlogPost.astro
-  pages/                # routes (incl. /og-image, /posts pagination, rss)
-  plugins/              # remark-admonitions, remark-reading-time
+  pages/                # routes (incl. /og-image, /posts pagination, /tags, rss)
+  plugins/              # remark-admonitions, remark-reading-time, rehype-base-path
   styles/global.css     # design tokens and shared utilities
 public/                 # static assets served at site root
 ```
@@ -141,7 +161,7 @@ subpath on any other host, build with `BASE_PATH=/sub pnpm build`.
 To keep tracking upstream changes after you've forked, add this repo as a second remote:
 
 ```sh
-git remote add theme https://github.com/AnjayGoel/astro-sienna.git
+git remote add theme https://github.com/anjay-goel/astro-sienna.git
 git fetch theme
 git merge theme/main --allow-unrelated-histories
 ```
